@@ -67,7 +67,11 @@
               "buildTarget": "angular-o1js:build:production"
             },
             "development": {
-              "buildTarget": "angular-o1js:build:development"
+              "buildTarget": "angular-o1js:build:development",
+              "headers": {
+                "Cross-Origin-Opener-Policy": "same-origin",
+                "Cross-Origin-Embedder-Policy": "require-corp"
+              }
             }
           },
           "defaultConfiguration": "development"
