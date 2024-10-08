@@ -36768,6 +36768,16 @@ var appConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration()]
 };
 
+// src/loadCOIServiceWorker.ts
+function loadCOIServiceWorker() {
+  if (typeof window !== "undefined" && window.location.hostname != "localhost") {
+    const coi = window.document.createElement("script");
+    coi.setAttribute("src", "/next/coi-serviceworker.min.js");
+    window.document.head.appendChild(coi);
+    console.log("loadCOIServiceWorker completed");
+  }
+}
+
 // src/app/app.component.ts
 var _forTrack0 = ($index, $item) => $item.title;
 var _c0 = () => ({ title: "Explore the Docs", link: "https://angular.dev" });
@@ -36803,6 +36813,7 @@ var AppComponent = class _AppComponent {
     if (isPlatformBrowser2(this.platformId)) {
       console.log("isPlatformBrowser returned true. Executing ngOnInit() client side");
       (() => __async(this, null, function* () {
+        loadCOIServiceWorker();
         const o1js = yield import("./web-MOEEAQJP.js");
         const { Mina, PublicKey, fetchAccount } = o1js;
         const { Add } = yield import("./src-IIUH2CHO.js");
