@@ -36803,9 +36803,9 @@ var AppComponent = class _AppComponent {
     if (isPlatformBrowser2(this.platformId)) {
       console.log("isPlatformBrowser returned true. Executing ngOnInit() client side");
       (() => __async(this, null, function* () {
-        const o1js = yield import("./web-7DVS4EYN.js");
+        const o1js = yield import("./web-MOEEAQJP.js");
         const { Mina, PublicKey, fetchAccount } = o1js;
-        const { Add } = yield import("./Add-FBIIXHSS.js");
+        const { Add } = yield import("./src-IIUH2CHO.js");
         const Network = Mina.Network("https://api.minascan.io/node/devnet/v1/graphql");
         Mina.setActiveInstance(Network);
         const zkAppAddress = `B62qnTDEeYtBHBePA4yhCt4TCgDtA4L2CGvK7PirbJyX4pKH8bmtWe5`;
