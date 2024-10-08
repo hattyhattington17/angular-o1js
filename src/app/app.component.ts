@@ -22,14 +22,15 @@ export class AppComponent {
         // load o1js
         const o1js = await import('o1js');
         const {Mina, PublicKey, fetchAccount} = o1js;
-        const {Add} = await import('../../../../docs/04-zkapp-browser-ui/contracts/build/src/');
+        const {Add} = await import('@hattyhattington17/add');
         // connect Mina to testnet
         const Network = Mina.Network(
           'https://api.minascan.io/node/devnet/v1/graphql'
         );
         Mina.setActiveInstance(Network);
         const zkAppAddress = `B62qnTDEeYtBHBePA4yhCt4TCgDtA4L2CGvK7PirbJyX4pKH8bmtWe5`;
-        await fetchAccount({publicKey: zkAppAddress});
+        const account = await fetchAccount({publicKey: zkAppAddress});
+        console.log("fetched account:", account);
         const zkApp = new Add(PublicKey.fromBase58(zkAppAddress));
         console.log("Current num: ", zkApp.num.get().toString());
 
