@@ -1,6 +1,9 @@
 import {Component, Inject, PLATFORM_ID} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
+import type * as o1jsTypes from 'o1js';
+
+declare var o1js: typeof o1jsTypes;
 
 @Component({
   selector: 'app-root',
@@ -20,7 +23,7 @@ export class AppComponent {
       console.log('isPlatformBrowser returned true. Executing ngOnInit() client side');
       (async () => {
         // load o1js
-        const o1js = await import('o1js');
+        // const o1js = await import('o1js');
         const {Mina, PublicKey, fetchAccount} = o1js;
         const {Add} = await import('@hattyhattington17/add');
         // connect Mina to testnet

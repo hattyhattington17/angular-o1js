@@ -3,11 +3,11 @@ const path = require('path');
 const app = express();
 
 // Serve static files from the Angular app's dist directory under "/angular-o1js"
-app.use('/angular-o1js', express.static(path.join(__dirname, 'dist/angular-o1js/browser')));
+app.use('/angular-o1js', express.static(path.join(__dirname, 'dist/angular-o1js')));
 
 // Catch all other routes and serve index.html for Angular's client-side routing
 app.get('/angular-o1js/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'dist/angular-o1js/browser', 'index.html'));
+  res.sendFile(path.join(__dirname, 'dist/angular-o1js', 'index.html'));
 });
 
 // Start the server

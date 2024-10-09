@@ -5,7 +5,8 @@
     "ng": "ng",
     "deploy": "ng deploy --repo=git@github.com:hattyhattington17/angular-o1js.git",
     "start": "ng serve",
-    "build": "ng build",
+    "local": "npm run build && node server.js",
+    "build": "mkdir public/lib && cp -r node_modules/o1js public/lib/o1js && ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:angular-o1js": "node dist/angular-o1js/server/server.mjs"
@@ -30,6 +31,7 @@
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^18.0.0",
     "@angular-devkit/build-angular": "^18.2.7",
     "@angular/cli": "^18.2.7",
     "@angular/compiler-cli": "^18.2.0",
