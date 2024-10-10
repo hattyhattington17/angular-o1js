@@ -1,7 +1,12 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-
+// Add the necessary headers for SharedArrayBuffer
+app.use((req, res, next) => {
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
+  res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
+  next();
+});
 // Serve static files from the Angular app's dist directory under "/angular-o1js"
 app.use('/angular-o1js', express.static(path.join(__dirname, 'dist/angular-o1js')));
 
