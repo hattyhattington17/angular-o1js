@@ -3,11 +3,12 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "deploy": "ng deploy --repo=git@github.com:hattyhattington17/angular-o1js.git",
-    "start": "ng serve",
+    "deploy": "ng deploy --dir=dist/angular-o1js --repo=git@github.com:hattyhattington17/angular-o1js.git",
+    "start": "npm run libs && ng serve",
     "local": "ng build && cp node_modules/o1js/dist/web/index.js dist && node server.js",
-    "build": "mkdir public/lib && cp -r node_modules/o1js public/lib/o1js && ng build",
+    "build": "npm run libs && ng build",
     "watch": "ng build --watch --configuration development",
+    "libs": "rm -rf public/lib && mkdir -p public/lib && cp -r node_modules/o1js public/lib/o1js && cp node_modules/coi-serviceworker/coi-serviceworker.min.js public/coi-serviceworker.min.js",
     "test": "ng test",
     "serve:ssr:angular-o1js": "node dist/angular-o1js/server/server.mjs"
   },
@@ -24,6 +25,7 @@
     "@angular/router": "^18.2.0",
     "@angular/ssr": "^18.2.7",
     "@hattyhattington17/add": "^0.1.0",
+    "coi-serviceworker": "^0.1.7",
     "express": "^4.21.1",
     "o1js": "^1.8.0",
     "rxjs": "~7.8.0",

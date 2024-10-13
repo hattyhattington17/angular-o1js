@@ -3,6 +3,8 @@ import {RouterOutlet} from '@angular/router';
 import {isPlatformBrowser} from '@angular/common';
 import type * as o1jsTypes from 'o1js';
 
+import './COIServiceWorker';
+
 declare var o1js: typeof o1jsTypes;
 
 @Component({
